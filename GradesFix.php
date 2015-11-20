@@ -3,6 +3,12 @@
 	/*		Need to output the data entered into grades table back to the browser in a table
 			Need to add admin password check into the if...elseif...else statement blocks 
 			
+			Fix up the files to work within the context of Assignment Two complete
+
+			Need to add email checkbox option and associated logic
+				send registration email to user after registering for class
+
+			Add homepage for project with main menu / links
 			
 			Extra stuff to add:
 			
