@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+	
+	<!--- Look up the media query and add to this file--->
+
+<html>
+<head>
+    <title>Insert Grades</title>
+	
+	<script type="text/javascript">
+		function showValue(newValue, idForSlider){
+			document.getElementById(idForSlider).innerHTML=newValue;
+		}
+	</script>
+    
+    <style>
+		
+		
+		body {
+			font: 90% Arial, Helvetica, sans-serif;
+			margin: 20px;
+		}
+		
+		fieldset {
+			width: 960px;
+			border: 5px double red;
+			border-radius: 0 0 20px 20px;
+			
+		}
+    
+		.innerField {
+			width: 760px;
+            border: 5px double blue;
+			border-radius: 10px 20px 0 20px;
+			box-shadow: 3px 3px 4px 4px red;
+		}
+		
+		input {
+			margin-left: 1em;
+			margin-bottom: .5em;
+		}
+		
+		input:focus {
+			border: 2px solid navy;
+		}
+    
+		legend {
+			font-weight: bolder;
+			padding: 5px;
+		}
+    
+		label {
+			width: 8em;
+			background-color: yellow;
+			float: left;
+			text-align: left;
+			font-weight: bold;
+		}
+    
+		#button{
+			margin-left: 10em;
+			width: 7em; 
+			box-shadow: 2px 2px  0 navy;
+			background-color: silver;
+		}
+		
+		#reset{
+			width: 7em;
+			box-shadow: 2px 2px  0 navy;
+			background-color: silver;
+		} 
+    
+	</style>
+
+</head>
+<body>  
+    <form action="GradesFix.php" method='POST'>
+        <fieldset>
+            <legend>Insert data into Grades</legend>
+                
+                <p>
+                    <label for='adminPw'>Password:</label>
+                        <input type='password' name='adminPw' placeholder='Enter password'/>
+                </p>
+                
+                <p>
+                    <label for='user'>User:</label>
+                        <input type='text' name='user' placeholder='Enter user name'/> 
+                </p>
+                
+                <p>
+                    <label for='course'>Course:</label>
+                        <input type='text' name='course' placeholder='Enter course'/>
+                </p>
+                
+                <fieldset class='innerField'>
+                    <p>
+                        <label for='A1range'>A1</label>
+                            <input type='range' name='A1range' min='0' max='50'
+						           onchange="showValue(this.value, 'rangeA1')"/>
+							<input type='checkbox' name='applyA1'/>Apply
+                            
+							<input type='date' name='A1submit'/>A1S
+							<br/><span id="rangeA1">0</span>
+                            
+                    </p>
+                        
+            
+                    <p>
+                        <label for='A2range'>A2</label>
+                            <input type='range' name='A2range' min='0' max='50'
+						           onchange="showValue(this.value, 'rangeA2')"/>	   
+                            <input type='checkbox' name='applyA2'/>Apply
+                            
+							<input type='date' name='A2submit'/>A2S
+							<br/><span id="rangeA2">0</span>
+                    </p>
+                
+                    <p>
+                        <label for='partic'>Participation</label>
+                            <input type='text' name='partic' placeholder='Participation grade'/>
+                    </p>
+                </fieldset>
+                
+                    <p>
+                            <input type='submit' name='submit' id="button"/>
+                            <input type='reset' name='reset' id="reset" onclick="showValue(0, 'rangeA2'); showValue(0, 'rangeA1')"/>
+                    </p>     
+        </fieldset>
+    </form>
+</body>
+</html>
+

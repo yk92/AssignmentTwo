@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Form</title>
+    
+    <script>
+        function passMatch(){
+            var pass1 = document.getElementById("passwd");
+            var pass2 = document.getElementById("passwd2");
+            
+            var message = document.getElementById("confirmMessage");
+            
+            var goodColor = "#66cc66";
+            var badColor = "#ff6666";
+            
+            if (pass1.value == pass2.value) {
+                pass2.style.backgroundColor = goodColor;
+                message.style.color = goodColor;
+                message.innerHTML = "Passwords match!";
+				document.getElementById("submitButton").disabled = false;
+            }
+            else{
+                pass2.style.backgroundColor = badColor;
+                message.style.color = badColor;
+                message.innerHTML = "Passwords Do NOT match!";
+				document.getElementById("submitButton").disabled = true;
+            }
+        } 
+    </script>
+</head>
+
+<body>
+    <form action="Insert.php" method='POST'>
+        
+        <fieldset class="col-1">
+            
+            <legend>Insert Into Database</legend>
+            
+            <p>
+                <label for="user">User:</label>
+                <input type='text' name='user' autofocus=on placeholder='Enter user name'/>
+            </p>           
+            <p>
+                <label for="password">Password:</label>
+                <input type='password' name='password' id='passwd' placeholder='Enter password'/>
+            
+            </p>
+            <p>
+                <label for="passwordConfirm">Confirm Password:</label>
+                <input type='password' name='passwordConfirm' placeholder='Confirm your password'
+                       id='passwd2' onkeyup='passMatch();'/>
+                <span id='confirmMessage' class='confirmMessage'></span>
+            </p>
+            <p>
+                <label for='email'>Enter Email:</label>
+                <input type='email' name='email' placeholder='your-email@domain.com'/>
+
+				<input type='checkbox' name = 'emailCheck' class="checkClass"/> Email Copy
+            </p>
+            <p>
+                <label for='fullname'>Enter full name:</label>
+                <input type='text' name='fullname' placeholder='Full name'/>
+            </p>
+            <p>
+                <label for='address'>Address:</label>
+                <textarea name='address' placeholder="Enter address:"></textarea>
+            </p>
+            <p>
+                <label for='cell'>Cellphone #:</label>
+                <input type='tel' name='cell'>
+            </p>
+            <p>
+                <label for='major'>Major:</label>
+                <input type='text' name='major' placeholder='Enter major'>
+            </p>
+            <p>
+                <label for='submit' class='submitClass'>PushMeOver</label>
+                <input type='submit' name='submit' value='Submit' id="submitButton" disabled=true>
+                <input type='reset' name='reset' id="resetButton">
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+<style>
+    
+    fieldset {
+		width: 960px;
+		border: 5px double red;
+		border-radius: 0 20px 20px 20px;
+		box-shadow: 2px 2px 2px 2px black;
+	}
+    textarea {
+		margin-left: 1em;
+		margin-bottom: .5em;
+		width: 15em;
+	
+	}
+    label { 
+		width: 10em;
+        background-color: yellow;
+        float: left;
+    }
+	input {
+		margin-left: 1em;
+		margin-bottom: .5em;
+		width: 15em;
+	}		
+	input:focus {
+		border: 2px solid navy;
+	}  
+	legend {
+		font-weight: bolder;
+		padding: 5px;
+	}
+    .submitClass {
+		background-color: white;
+        color: white;
+    }
+	.checkClass {
+		width: 1em;
+	}
+	#submitButton, #resetButton {
+		width: 7em;
+	}
+	
+	@media only screen and (max-width: 768px) {
+    
+    .col-1 {
+        width: 100%;
+    }
+	<!---   media query for this page
+	
+	@media screen and (min-width: 720px) {
+		fieldset {
+			border: red;
+		}
+	}
+
+	@media screen and (max-width: 400px) {
+		fieldset {
+			border: blue;
+		}
+	}
+    --->
+</style>
